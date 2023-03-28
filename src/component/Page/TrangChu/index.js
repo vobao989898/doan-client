@@ -440,7 +440,7 @@ function TrangChu(props) {
            <OwlCarousel autoplay items={1} className="owl-theme quangcao" loop nav>
               {dataQuanCao && dataQuanCao.map((item)=>{
                 return  <div key={item.id} className="img-banner">
-                <img src={`http://localhost:8080/images/${item.hinh_anh}`}></img>
+                <img src={`https://apidoan.herokuapp.com/images/${item.hinh_anh}`}></img>
               </div>
               })}
               </OwlCarousel></div>
@@ -541,7 +541,7 @@ function TrangChu(props) {
                               className="imgMauSac"
                               width={"20px"}
                               height={"20px"}
-                              src={`http://localhost:8080/images/${item.hinh_anh}`}
+                              src={`https://apidoan.herokuapp.com/images/${item.hinh_anh}`}
                             ></img>
                           </a>
                         </li>

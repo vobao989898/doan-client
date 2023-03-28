@@ -23,7 +23,7 @@ import TinTucDetail from "./../component/Page/TinTuc/Detail/index";
 import KhuyenMai from "./../component/Page/KhuyenMaiNow/index";
 
 
-export const API_ENPOINT = "http://localhost:8080";
+export const API_ENPOINT = "https://apidoan.herokuapp.com";
 
 export const ROUTESDH = [
   {

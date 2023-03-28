@@ -134,7 +134,7 @@ function DashBoard(props) {
             <Link key={route.id} to={`/ThuongHieu=${route.id}`}>
             <div className={(route.ten_loai_giay ===  'Alexander McQueen' || route.ten_loai_giay ===  'Balenciaga' || route.ten_loai_giay ===  'Supreme')? "img-menu img-menuMcQueen" : "img-menu"}>
              {route.ten_loai_giay === 'Alexander McQueen'?<div className="logoMcQueen">McQueen</div>:route.ten_loai_giay === 'Supreme'?<div className="logoMcQueen">Supreme</div>:route.ten_loai_giay === 'Balenciaga'?<div className="logoMcQueen">Balenciaga</div>: <img
-                src={`http://localhost:8080/images/${valueImage(
+                src={`https://apidoan.herokuapp.com/images/${valueImage(
                   route.ten_loai_giay
                 )}`}
               ></img>}
@@ -195,7 +195,7 @@ function DashBoard(props) {
               >
                 <div className="img">
                   <img
-                    src="http://localhost:8080/images/tin-tuc.png"
+                    src="https://apidoan.herokuapp.com/images/tin-tuc.png"
                     alt="Cập nhật tin tức về các thương hiệu giày sneaker mới 2021"
                     width={24}
                     height={24}
@@ -525,7 +525,7 @@ function DashBoard(props) {
               <ul id="nav" className="nav">
                 <li className="nav-item nav-item__css">
                   <div className="img-menu">
-                    <img src={`http://localhost:8080/images/pro-new.png`}></img>
+                    <img src={`https://apidoan.herokuapp.com/images/pro-new.png`}></img>
                   </div>
                   <Link to="/" title="Trang chủ" style={{ color: "#fad064" }}>
                     Trang chủ

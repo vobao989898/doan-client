@@ -505,7 +505,7 @@ function TrangChu(props) {
                                 className="imgMauSac"
                                 width={"20px"}
                                 height={"20px"}
-                                src={`http://localhost:8080/images/${item.hinh_anh}`}
+                                src={`https://apidoan.herokuapp.com/images/${item.hinh_anh}`}
                               ></img>
                             </a>
                           </li>
