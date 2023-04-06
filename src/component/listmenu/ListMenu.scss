@@ -254,7 +254,7 @@ position: fixed;
     text-transform: uppercase;
 }
 
-@media screen and (min-width: 1px)and(max-width: 739px) {
+@media screen and (min-width: 1px) and (max-width: 739px) {
     .nav {
         display: none;
     }
@@ -599,7 +599,7 @@ ul{
 .cursor{
     cursor: pointer;
 }
-@media screen and (min-width: 70px)and(max-width: 1040px) {
+@media screen and (min-width: 70px) and (max-width: 1040px) {
     .title-account,
     .title-giohang {
         display: none;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './Login.scss';
 import * as apiLogin from './../../api/login';
-import 'react-notifications-component/dist/theme.css';
 import 'animate.css';
 import * as noti from './../../contants/notifycation';
 import loading from './../../assets/loading.gif';

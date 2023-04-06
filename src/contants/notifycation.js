@@ -1,28 +1,8 @@
-import { Store } from 'react-notifications-component';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 export const notificatonSuccess = function notificatonSuccess(title) {
-    return Store.addNotification({
-        title: 'Thông báo',
-        message: title,
-        type: 'success', // 'default', 'success', 'info', 'warning'
-        container: 'top-center', // where to position the notifications
-        animationIn: ['animated', 'fadeIn'], // animate.css classes that's applied
-        animationOut: ['animated', 'fadeOut'], // animate.css classes that's applied
-        dismiss: {
-            duration: 3000,
-        },
-    });
+    return NotificationManager.success('Success', title);
 };
 
 export const notificatonWarning = function notificatonWarning(title) {
-    return Store.addNotification({
-        title: 'Thông báo',
-        message: title,
-        type: 'warning', // 'default', 'success', 'info', 'warning'
-        container: 'top-center', // where to position the notifications
-        animationIn: ['animated', 'fadeIn'], // animate.css classes that's applied
-        animationOut: ['animated', 'fadeOut'], // animate.css classes that's applied
-        dismiss: {
-            duration: 3000,
-        },
-    });
+    return NotificationManager.warning('Success', title);
 };
