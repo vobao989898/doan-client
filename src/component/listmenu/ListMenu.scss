@@ -1,0 +1,696 @@
+
+
+.iconMenu {
+    float: left;
+}
+
+.iconMenu .MuiSvgIcon-root {
+    font-size: 40px;
+    margin: auto auto;
+    cursor: pointer;
+}
+
+// .logo {
+//     display: flex;
+//     flex: 1;
+// }
+
+.logo img {
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    cursor: pointer;
+}
+
+.account {
+    position: relative;
+}
+
+.account::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    width: 100%;
+    height: 45px;
+    background: 0 0;
+    z-index: 8;
+}
+
+.account:hover ul {
+    display: block;
+}
+
+.account ul {
+    position: absolute;
+    display: none;
+    top: 56px;
+    left: 0;
+    z-index: 10000;
+    background: #fff;
+    width: 100%;
+    min-width: 200px;
+    border: 1px solid #efefef;
+    border-radius: 0 0 3px 3px;
+}
+
+.account ul:before {
+    border: 9px solid transparent;
+    border-bottom: 9px solid #efefef;
+    margin-left: -9px;
+    bottom: 100%;
+    left: 20%;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.account ul li a {
+    display: block;
+    padding: 7px 10px;
+    color: #1c1c1c;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.account ul li a:hover {
+    text-decoration: none;
+    color: #916841;
+}
+
+.account:hover,
+.giohang:hover,
+.search:hover {
+    cursor: pointer;
+}
+
+.cart-product {
+    position: relative;
+}
+
+.cart-poduct-sl {
+    position: absolute;
+    right: 5px;
+    top: -15px;
+    font-size: 15px;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background-color: #1c1c1c;
+    color: white;
+    text-align: center;
+}
+
+.cart-product__icon {
+    position: absolute;
+    right: 5px;
+    top: 0;
+}
+
+.dk-acoount {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+    margin: auto 0;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.dk-acoount .MuiSvgIcon-root {
+    font-size: 30px;
+    padding: 0 3px;
+}
+
+.flex-dk {
+    display: flex;
+    padding: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+   
+}
+
+.cart{
+    width: 30%;
+}
+
+.background_css{
+    background: linear-gradient(to bottom,#242428 10%,#38383e 44%,#38383e 100%);
+    margin-top: 5px;
+}
+
+.backgroundFixed_css {
+position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.nav {
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+.nav .nav-item {
+    display: flex;
+    flex-wrap: wrap;
+    // max-width: 95px;
+}
+
+.img-menu{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0 0 0;
+    height: 24px;
+}
+
+.nav .nav-item a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+}
+
+.nav .row-menu {
+    width: 110px;
+    border-bottom: none;
+}
+
+.row-menu button#dropdown-basic {
+    font-size: 18px;
+}
+
+.footer-TC {
+    margin-top: 30px;
+    background-color: #222;
+    padding: 20px 0px;
+    overflow: hidden;
+}
+
+.title-huongdan {
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    padding-top: 10px;
+    color: white;
+  
+}
+
+.list-huongdan {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list-huongdan li {
+    padding: 5px 0;
+    width: 100%;
+}
+
+.list-huongdan a {
+    font-size: 14px;
+    color: white;
+}
+
+.list-huongdan a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.dislay-center {
+    display: flex;
+}
+
+.huongdan {
+    margin: 0 auto;
+}
+
+
+.dislayEnd{
+    display: flex;
+    justify-content: end;
+}
+.dislayEnd .huongdan {
+    margin: 0 unset;
+}
+
+.img-menuMcQueen{
+    padding: 0px;
+    padding-top: 4px;
+}
+
+.logoMcQueen{
+    font-size: 18px;
+    padding-bottom: 2px;
+    text-transform: uppercase;
+}
+
+@media screen and (min-width: 1px) and (max-width: 739px) {
+    .nav {
+        display: none;
+    }
+    .title-account,
+    .title-giohang,
+    .account,
+    .nav-evo-watch {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .row-menu button#dropdown-basic {
+        font-size: 15px;
+    }
+    .nav .nav-item a {
+        font-size: 15px;
+    }
+   
+    // .logo {
+    //     width: 50% !important;
+    //     display: flex;
+    // }
+    .logo img {
+        height: 80px;
+        width: 100%;
+    }
+    .dk-acoount {
+        width: 25% !important;
+        display: flex;
+    }
+    .flex-dk {
+        justify-content: end;
+    }
+}
+
+a, abbr, acronym, address, applet, article, aside, audio, big, blockquote, body, button, canvas, caption, center, cite, code, dd, del, details, dfn, dl, dt, fieldset, figcaption, figure, font, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, img, input, ins, kbd, label, legend, li, menu, nav, object, ol, p, pre, q, s, samp, section, select, small, strike, sub, summary, sup, textarea, tfoot, tt, u, ul, var, video {
+    font-family: inherit;
+    font-size: 100%;
+    font-weight: inherit;
+    font-style: inherit;
+    line-height: inherit;
+    vertical-align: baseline;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    color: #333;
+    zoom: 1;
+}
+
+.container {
+    position: relative;
+}
+.head .container {
+    margin: 0 auto;
+    width: 99%;
+    max-width: 1260px;
+}
+
+.head:before {
+    border-bottom: 1px solid #bcbcbc;
+    top: 33px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+.container:after, .container:before {
+    display: table;
+    content: " ";
+}
+
+.head h1 {
+    float: left;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+.head .texttop {
+    float: right;
+}
+
+.head .texttop ul.text {
+    border: 1px solid #bcbcbc;
+    z-index: 1;
+    border-radius: 0 0 3px 3px;
+    background: #fff;
+    background: linear-gradient(to bottom,#fff 0,#fefefe 16%,#f7f7f7 100%,#f2f2f2 50%,#f2f2f2 80%,#f2f2f2 100%);
+    overflow: hidden;
+    border-top: 0;
+    border-right: 0;
+    float: left;
+}
+
+.head .texttop ul.text li {
+    text-transform: uppercase;
+    border-right: 1px solid #bcbcbc;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: normal;
+    padding: 12px 15px 10px;
+    float: left;
+}
+
+.head .texttop ul.text p {
+    color: #e77e24;
+    margin-bottom: 6px;
+}
+
+.head .texttop ul.text span {
+    display: block;
+    color: #666;
+}
+
+svg#Capa_1 {
+    width: 20px;
+    height: 20px;
+}
+
+svg#Capa_2 {
+    width: 36px;
+    height: 36px;
+}
+
+.head div#cart i {
+    display: block;
+    margin-top: 7px;
+}
+
+.head .texttop ul.top {
+    border: 1px solid #bcbcbc;
+    z-index: 1;
+    border-radius: 0 0 3px 3px;
+    background: #353535;
+    background: linear-gradient(to bottom,#242428 10%,#38383e 44%,#38383e 100%);
+    overflow: hidden;
+    border-top: 0;
+    border-right: 0;
+    float: left;
+    margin-left: 10px;
+    height: 60px;
+}
+
+.head .texttop ul.top li {
+    padding: 5px 15px;
+    min-width: 100px;
+    float: left;
+    border-right: 1px solid #eee;
+    max-width: 300px;
+}
+
+.head .texttop ul.top li .img, .head div#cart, a.cartmb, nav.menu li, nav.menu span.brand {
+    text-align: center;
+}
+
+img:not(.initial) {
+    transition: opacity 2s;
+}
+
+.head .texttop ul.top li p {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+.head div#cart {
+    position: relative;
+    display: block;
+    background: #e77e24;
+    margin-left: 10px;
+    width: 95px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 58px;
+    float: right;
+    color: #fff;
+    cursor: pointer;
+}
+.clear {
+    clear: both;
+    height: 1px;
+}
+
+.header .logo {
+    float: left;
+    margin-top: -10px;
+    position: relative;
+    overflow: hidden;
+    height: 100px;
+}
+
+header .logo img {
+    margin-top: 5px;
+}
+
+header .logomb {
+    display: none;
+}
+
+.header .account, .header .feedback {
+    float: right;
+    margin: 7px 0 0 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header .account svg {
+    vertical-align: text-top;
+    margin: 3px 5px 0 0;
+    border-radius: 100%;
+    border: 2px solid #585859;
+}
+
+.header .feedback {
+    margin-top: 10px;
+}
+
+.header .feedback img.default {
+    height: 36px;
+    vertical-align: text-top;
+    margin-right: 5px;
+}
+
+img:not(.initial) {
+    transition: opacity 2s;
+}
+
+.header .feedback span{
+    margin: 0px 5px;
+}
+
+
+.header .feedback img.default {
+    height: 36px;
+    vertical-align: text-top;
+    margin-right: 5px;
+}
+
+.header .feedback p.capdo {
+    color: #48904a;
+    font-size: 15px;
+    font-weight: 400;
+    position: absolute;
+    left: 41px;
+    top: 18px;
+    white-space: nowrap;
+}
+
+
+.head::after, header::after {
+    content: ' ';
+    display: block;
+    clear: both;
+}
+
+svg#Layer_1{
+    width: 32px;
+    height: 32px;
+}
+.feedback a:hover, .account a:hover {
+    color: #c13828;
+    text-decoration: none;
+}
+.header .account, .header .feedback {
+    float: right;
+    margin: 7px 0 0 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.header .account p.capdo {
+    font-weight: 400;
+    position: absolute;
+    bottom: 0px;
+    left: 41px;
+    background: #48904a;
+    color: #fff;
+    padding: 0px 5px;
+    font-size: 12px;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
+.search {
+    float: right;
+    width: 488px;
+    padding-top: 10px;
+    margin-bottom: 15px;
+}
+
+
+.search form {
+    width: 100%;
+    height: 36px;
+    position: relative;
+}
+
+
+.search input[type=text] {
+    padding: 0 10px;
+    width: 100%;
+    background: 0 0;
+    line-height: 36px;
+    box-shadow: 0 2px 4px rgba(204, 204, 204, 0.26) inset;
+    border-radius: 4px;
+    border: 1px solid #b6b6b6;
+    box-sizing: border-box;
+    color: #57575b;
+    font-size: 14px;
+}
+
+.search input[type=submit] {
+    background: url('http://localhost:8080/images/Search_Icon.svg') center no-repeat #e77e24;
+    text-indent: -9999px;
+    width: 44px;
+    height: 36px;
+    margin: -1px;
+    cursor: pointer;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    background-size: 20px;
+    border-radius: 4px;
+}
+
+
+ul{
+    margin-bottom: 0px !important;
+}
+
+.iconMenu {
+    display: none;
+}
+.cursor{
+    cursor: pointer;
+}
+
+@media screen and (min-width: 70px) and (max-width: 767px) {
+    .iconMenu{
+        display: flex;
+    }
+    .search{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+       
+    }
+    .search form{
+        max-width: 100%;
+    }
+    .header .logo{
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .header .logo img{
+        width: 40%;
+    }
+
+    .head .texttop{
+        float: unset;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .head .texttop .text{
+        display: flex;
+        width: 100%;
+        justify-content: end;
+    }
+
+    .head .texttop .text .cursor,  .head .texttop .top > li{
+        width: 50%;
+    }
+
+    .head .texttop ul.top{
+        display: flex;
+        width: 70%;
+        margin-left: 0px;
+    }
+
+    .head div#cart{
+        width: 30%;
+        margin-left: 0px;
+        border-radius: 0px;
+    }
+
+    .head h1 {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 70px) and (max-width: 1040px) {
+    .title-account,
+    .title-giohang {
+        display: none;
+    }
+    .container, .container-md, .container-sm {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .header-CT {
+        width: 100%;
+    }
+    .logo img {
+        height: 100px;
+    }
+    .row-menu button#dropdown-basic {
+        font-size: 18px;
+    }
+    .nav .nav-item a {
+        font-size: 16px;
+    }
+    .container, .container-md, .container-sm{
+        width: 100% !important;
+    }
+}
+
+.MuiBackdrop-root {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0 !important;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55);
+    z-index: 999;
+    transition: opacity .5s ease;
+}
