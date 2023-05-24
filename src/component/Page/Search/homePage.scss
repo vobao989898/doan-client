@@ -7,16 +7,6 @@
     display: none;
 }
 
-.owl-nav {
-    top: 0;
-    left: -5%;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    font-size: 45px;
-}
 
 .owl-theme .owl-nav {
     margin-top: 0px !important;
@@ -158,7 +148,7 @@
 .owl-carousel .owl-item img {
     // width: 224.66px !important;
     // height:  224.66px !important;
-    padding: 0 35px !important;
+    padding: 0 0px !important;
     object-fit: contain;
 }
 

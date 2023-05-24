@@ -19,6 +19,7 @@ import * as actionLoaiGiay from "./../../../actions/loai_giay";
 import * as actionGiay from "./../../../actions/giay";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { useMediaQuery } from "react-responsive";
 
 function TrangChu(props) {
   const {
@@ -29,6 +30,8 @@ function TrangChu(props) {
     giayNP,
     mausacNP,
   } = props;
+  const isTablet = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
 
   const [dataQuanCao, setDataQuangCao] = useState([]);
   const [dataKM, setDataKM] = useState([]);
@@ -447,7 +450,7 @@ function TrangChu(props) {
     } else {
       return (
         <div className="homePage">
-          <div className="quangcao">
+          <div className="quangcao ">
             <OwlCarousel
               autoplay
               items={1}
@@ -460,14 +463,14 @@ function TrangChu(props) {
                   return (
                     <div key={item.id} className="img-banner">
                       <img
-                        src={`http://localhost:8080/images/${item.hinh_anh}`}
+                        src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
                       ></img>
                     </div>
                   );
                 })}
             </OwlCarousel>
           </div>
-          <div className="ThuongHieuTC">
+          {/* <div className="ThuongHieuTC">
             <div className="ThuongHieuTC_css">
               <div className="container">
                 <div className="sort-cate clearfix margin-bottom-10 hidden-xs">
@@ -565,7 +568,7 @@ function TrangChu(props) {
                                   className="imgMauSac"
                                   width={"20px"}
                                   height={"20px"}
-                                  src={`http://localhost:8080/images/${item.hinh_anh}`}
+                                  src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
                                 ></img>
                               </a>
                             </li>
@@ -712,15 +715,15 @@ function TrangChu(props) {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="container">
+          </div> */}
+          <div className="container mt-5">
             <div className="newProduct">
               <div className="title-newProdcut">
                 <Link to="/SanPhamMoi" className="title-hp">
                   Sản Phẩm mới
                 </Link>
               </div>
-              <OwlCarousel items={4} className="owl-theme" loop nav margin={8}>
+              <OwlCarousel autoplay items={ isMobile ? 2 :isTablet ? 3  : 4} className="owl-theme" loop nav margin={8}>
                 {giayNP.length > 0 ? (
                   giayNP.map((item, index) => {
                     const data = mausacNP.filter((i) => i.id_giay === item.id);
@@ -806,7 +809,7 @@ function TrangChu(props) {
               </div>
             </div>
           </div>
-          <div className="container mt-5">
+          <div className="container">
             <div className="th-prodcut mt-5">
               {ListLoaiGiay?.length > 0 &&
               dataLGS.length > 0 &&
@@ -881,14 +884,15 @@ function TrangChu(props) {
                   });
 
                   return (
-                    <div key={item.id} className="newProduct mt-3">
+                    <div key={item.id} className="newProduct mt-5">
                       <div className="title-newProdcut">
                         <Link to="/SanPhamMoi" className="title-hp">
                           {item.ten_loai_giay}
                         </Link>
                       </div>
                       <OwlCarousel
-                        items={4}
+                      autoplay
+                        items={ isMobile ? 2 :isTablet ? 3  : 4}
                         className="owl-theme"
                         loop
                         nav

@@ -146,10 +146,6 @@ ul {
     object-fit: contain;
 }
 
-.width-image{
-    height: 285px;
-    width: 100%;
-}
 .ThuongHieuTC .imgMauSac{
     width: 15px !important;
     height: 15px !important;
@@ -200,7 +196,7 @@ button.shopee-button-solid.shopee-button-solid--primary.ubfyUF{
     width: 99%;
     max-width: 1260px !important;
 }
-@media screen and (min-width: 1px) and (max-width: 739px) {
+@media screen and (min-width: 1px) and (max-width: 768px) {
     .sort-cate .sort-cate-left ul li {
         width: 50%;
     }

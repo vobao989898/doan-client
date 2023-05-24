@@ -21,9 +21,12 @@ import * as apiDanhGia from "../../../api/chi_tiet_danh_gia";
 import Moment from "moment";
 import StarRatings from "react-star-ratings";
 import { Button, Modal } from "react-bootstrap";
+import { useMediaQuery } from "react-responsive";
 
 function XemSanPham(props) {
   const { CreateModal } = props;
+  const isTablet = useMediaQuery({ query: "(max-width: 1224px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   const history = useHistory();
   const [data, setData] = useState({});
@@ -34,8 +37,10 @@ function XemSanPham(props) {
   const [dataTamAlls, setDataTamAlls] = useState([]);
   const [danhGia, setdanhGia] = useState(5);
   const [show, setShow] = useState(false);
-  const [giay, setGiay] = useState('');
+  const [giay, setGiay] = useState("");
+  const [noiDung, setNoiDung] = useState("");
   const [danhGias, setdanhGias] = useState(0);
+  const [dataDanhGia, setDataDanhGia] = useState(0);
   const [dataSubmit, setDataSubmit] = useState({
     id_giay: "",
     ten_giay: "",
@@ -57,18 +62,27 @@ function XemSanPham(props) {
   }, []);
   useEffect(() => {
     loadData();
-    loadDanhGIa()
+    loadDanhGIa();
     const search = JSON.parse(localStorage.getItem("search"));
   }, []);
 
-
-  async function loadDanhGIa(){
+  async function loadDanhGIa() {
     await apiDanhGia.getDanhGia(props.match.params.th).then((res) => {
-      if(res?.data?.data[0]?.danh_gia){
-          setdanhGia(res?.data?.data[0]?.danh_gia)
+      var datas = res?.data?.data;
+      if (datas?.length > 0) {
+        var stemps = 0;
+        datas.forEach((item) => {
+          stemps += item?.rating;
+        });
+        setdanhGia(stemps / datas?.length);
+        setDataDanhGia(datas);
+      } else {
+        setDataDanhGia([]);
+        setdanhGia(5);
       }
     });
   }
+
   async function loadData() {
     const gia = JSON.parse(localStorage.getItem("gia"));
     const search = JSON.parse(localStorage.getItem("search"));
@@ -336,16 +350,17 @@ function XemSanPham(props) {
           }
         }
       }
-    }else{
-      setDatas()
+    } else {
+      setDatas();
     }
 
     return () => (current = false);
   }, [dataTams, dataTamAlls, dataKM]);
-  console.log(dataHot)
+
   function handleSubmit(e) {
     e.preventDefault();
   }
+
   function fast_select(datas) {
     const m = data[0].mausac.filter(
       (arr, index) => arr.id_mau_sac === datas.id_mau_sac
@@ -486,54 +501,55 @@ function XemSanPham(props) {
   }
 
   const handleClose = () => setShow(false);
-  const handleShow = async() => {
+  const handleShow = async () => {
     const tokenss = localStorage.getItem("tokenTC");
-        if (tokenss) {
-          try {
-            var decoded = jwt.verify(tokenss, "qwe1234");
-            if (decoded.result) {
-               await apiCDH.getByidKH(decoded.result.id).then((res)=>{
-                if(res?.data?.data?.length>0){
-                    setShow(true);
-                  }else{
-                    notify.notificatonWarning(`Bạn phải mua ít nhất một sản phẩm`);
-                  }
-               })
+    if (tokenss) {
+      try {
+        var decoded = jwt.verify(tokenss, "qwe1234");
+        if (decoded.result) {
+          await apiCDH.getByidKH(decoded.result.id).then((res) => {
+            if (res?.data?.data?.length > 0) {
+              setShow(true);
+            } else {
+              notify.notificatonWarning(`Bạn phải mua ít nhất một sản phẩm`);
             }
-          } catch (err) {
-            // err
-          }
-          //qwe1234
-        } else {
-          history.push('/DangNhap')
+          });
         }
-  };
-  const handleDanhGIa = async(e)=>{
-    var id = 0;
-    if(e===1){
-      id = 4 
-    }
-    if(e===2){
-      id = 14
-    }
-    if(e===3){
-      id = 24
-    }
-    if(e===4){
-      id = 34
-    }
-    if(e===5){
-      id = 44
-    }
-    await apiDanhGia.Them({id_giay: props.match.params.th, id_danh_gia: id, date_create: Moment(new Date()).format("YYYY-MM-DD HH:mm")}).then((res)=>{
-      if(res?.data?.success === 1){
-        console.log(res?.success)
-        setShow(false);
-        loadDanhGIa()
+      } catch (err) {
+        // err
       }
-      setShow(false);
-    })
-  }
+      //qwe1234
+    } else {
+      history.push("/DangNhap");
+    }
+  };
+  const handleDanhGIa = async (e) => {
+    const tokenss = localStorage.getItem("tokenTC");
+    var decoded = jwt.verify(tokenss, "qwe1234");
+    const data = dataDanhGia?.filter((item) => {
+      return item?.id_khach_hang === decoded.result.id;
+    });
+    if (data?.length > 0) {
+      notify.notificatonWarning("Bạn đã đánh giá cho sản phẩm này rồi");
+    } else {
+      await apiDanhGia
+        .Them({
+          id_giay: props.match.params.th,
+          id_khach_hang: decoded.result.id,
+          rating: danhGias,
+          noi_dung: noiDung,
+          date_create: Moment(new Date()).format("YYYY-MM-DD HH:mm"),
+        })
+        .then((res) => {
+          if (res?.data?.success === 1) {
+            setShow(false);
+            loadDanhGIa();
+            notify.notificatonSuccess("Cảm ơn bạn đã đánh giá sản phẩm của chúng tôi");
+          }
+          setShow(false);
+        });
+    }
+  };
   if (mausac.length > 0) {
     return (
       <div className="xem_san_pham">
@@ -542,36 +558,62 @@ function XemSanPham(props) {
             <Modal.Title>Đánh giá</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <StarRatings
-              rating={danhGias}
-              starRatedColor="#e77e24"
-              numberOfStars={5}
-              changeRating={(e) => handleDanhGIa(e)}
-              name="rating"
-            />
+            <div class="form-group">
+              <div>
+                <label for="exampleFormControlTextarea1">Rating</label>
+              </div>
+              <StarRatings
+                rating={danhGias}
+                starRatedColor="#e77e24"
+                numberOfStars={5}
+                changeRating={(e) => setdanhGias(e)}
+                name="rating"
+                starDimension="30px"
+                starSpacing="3px"
+              />
+              <div class="form-group mt-2">
+                <label for="exampleFormControlTextarea1">Nội dung</label>
+                <textarea
+                  className="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  name="noi_dung"
+                  value={noiDung}
+                  onChange={(e) => {
+                    setNoiDung(e.target.value);
+                  }}
+                ></textarea>
+              </div>
+            </div>
           </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => handleDanhGIa()}>
+              Đánh giá
+            </Button>
+          </Modal.Footer>
         </Modal>
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-sm-6 col-lg-6 col-md-6">
-              <OwlCarousel items={1} className="owl-theme" loop nav margin={8}>
+              <OwlCarousel
+                autoplay
+                items={1}
+                className="owl-theme"
+                loop={true}
+                nav
+                margin={8}
+              >
                 {mausac.length > 0 ? (
                   mausac.map((item, index) => {
                     return (
-                      <Link
-                        key={index + 1}
-                        to="/SanPhamMoi"
-                        className="title-hp"
-                      >
-                        <div className="one-procut">
-                          <div className="width-image">
-                            <img
-                              className="img"
-                              src={`${apiImage.API_ENPOINT}/images/${item}`}
-                            />
-                          </div>
+                      <div className="one-procut">
+                        <div className="width-image">
+                          <img
+                            className="img"
+                            src={`${apiImage.API_ENPOINT}/images/${item}`}
+                          />
                         </div>
-                      </Link>
+                      </div>
                     );
                   })
                 ) : (
@@ -584,16 +626,6 @@ function XemSanPham(props) {
                 <div className="watch-product__name">
                   CAPTOE BROGUES OXFORD - LIMITED EDITION - OF21
                 </div>
-                <div className="mt-2 d-flex">
-                <div className="mr-1"><StarRatings
-                  rating={danhGia}
-                  starRatedColor="#e77e24"
-                  numberOfStars={5}
-                  name="rating"
-                /></div>
-                <Button onClick={() => handleShow()}>Đánh giá</Button>
-              </div>
-                
                 <div className="watch-product__price mt-3">
                   <div className="select-fast__modify">Giá bán:</div>
                   <div className="d-flex">
@@ -694,15 +726,82 @@ function XemSanPham(props) {
               </div>
             </div>
           </div>
+          <div className="mt-3 rating-all">
+            <div className="title-hp">Đánh giá sản phẩm</div>
+            <div className="d-flex justify-content-center ">
+              <div className="mr-1 ">
+                <div className="show-rating">
+                  <div>
+                    <StarRatings
+                      starDimension="30px"
+                      starSpacing="3px"
+                      rating={danhGia}
+                      starRatedColor="#e77e24"
+                      numberOfStars={5}
+                      name="rating"
+                    />
+                  </div>
+                  <div className="title-show-rating">{danhGia}</div>
+                  <div className="subtitle-show-rating">
+                    ({dataDanhGia?.length} nhận xét)
+                  </div>
+                  <div className="d-flex justify-content-center mt-2">
+                    <Button
+                      className="button-show-rating"
+                      onClick={() => handleShow()}
+                    >
+                      Đánh giá
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="scroll-rating">
+              {dataDanhGia?.length > 0 ? (
+                dataDanhGia?.map((item) => {
+                  return (
+                    <div key={item?.id} className="show-comment">
+                      <div className="rating-name">{item?.ten_khach_hang}</div>
+                      <div className="date-rating">
+                        <StarRatings
+                          starDimension="15px"
+                          starSpacing="1px"
+                          rating={item?.rating}
+                          starRatedColor="#e77e24"
+                          numberOfStars={5}
+                          name="rating"
+                        />
+                        <div className="datetime-rating">
+                          {Moment(item?.date_create).format("DD/MM/YYYY HH:mm")}
+                        </div>
+                      </div>
+                      <div className="rating-conten">
+                        Sản phẩm rất tốt, và giao hàng cũng rất nhanh
+                      </div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div></div>
+              )}
+            </div>
+          </div>
         </div>
-        <div>
+        <div className="mt-5">
           <div className="newProduct">
             <div className="title-newProdcut">
               <Link to="/SanPhamMoi" className="title-hp">
                 Sản Phẩm Bạn Có Thể Muốn Chọn
               </Link>
             </div>
-            <OwlCarousel items={4} className="owl-theme" loop nav margin={8}>
+            <OwlCarousel
+              autoplay
+              items={isMobile ? 2 : isTablet ? 3 : 4}
+              className="owl-theme"
+              loop
+              nav
+              margin={8}
+            >
               {datas?.length > 0 ? (
                 datas.map((item, index) => {
                   const data = item.mausac;

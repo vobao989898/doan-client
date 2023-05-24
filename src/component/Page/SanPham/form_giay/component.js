@@ -749,7 +749,7 @@ function Component_type(props) {
 						// let check = checkedMS(l);
 						return (
 							<div key={l.id} className="select-mausac">
-								<img src={`http://localhost:8080/images/${l.hinh_anh}`} alt="" />
+								<img src={`https://doanapi.herokuapp.com/images/${l.hinh_anh}`} alt="" />
 								<div className="title-mausacs">{l.ten_mau_sac}</div>
 								<input type="checkbox" data-id={index} onClick={handleCheckboxChanges} />
 							</div>
