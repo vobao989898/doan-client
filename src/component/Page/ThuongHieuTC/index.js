@@ -537,7 +537,7 @@ function ThuongHieuTC(props) {
                               className="imgMauSac"
                               width={"20px"}
                               height={"20px"}
-                              src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
+                              src={`http://localhost:8080/images/${item.hinh_anh}`}
                             ></img>
                           </a>
                         </li>

@@ -215,7 +215,7 @@ function DashBoard(props) {
                 >
                   <div className="img">
                     <img
-                      src="https://doanapi.herokuapp.com/images/tin-tuc.png"
+                      src="http://localhost:8080/images/tin-tuc.png"
                       alt="Cập nhật tin tức về các thương hiệu giày sneaker mới 2021"
                       width={24}
                       height={24}
@@ -553,7 +553,7 @@ function DashBoard(props) {
               <ul id="nav" className="nav">
                 <li className="nav-item nav-item__css">
                   <div className="img-menu">
-                    <img src={`https://doanapi.herokuapp.com/images/pro-new.png`}></img>
+                    <img src={`http://localhost:8080/images/pro-new.png`}></img>
                   </div>
                   <Link to="/" title="Trang chủ" style={{ color: "#fad064" }}>
                     Trang chủ
