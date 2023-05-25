@@ -23,6 +23,10 @@
   z-index: 10;
 }
 
+a:hover {
+  text-decoration: none !important;
+}
+
 .row-menu button#dropdown-basic {
   font-size: 18px !important;
 }
