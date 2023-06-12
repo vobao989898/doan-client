@@ -4,7 +4,7 @@ function ThanhToan(props) {
 	return (
 		<div className="HuongDanMuaHang">
 			<div className="container">
-				<div className="title-huongdan text-center">CHÍNH SÁCH THANH TOÁN</div>
+				<div className="title-huongdans text-center">CHÍNH SÁCH THANH TOÁN</div>
 				<div className="row">
 					<div className="col-xs-12 col-sm-12 col-md-12">
 						<div className="content-page rte">
