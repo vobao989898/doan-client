@@ -117,7 +117,7 @@ function DangNhap(props) {
 						<div className="login-fb">
 							<FacebookLogin
 								className="mr-t"
-								appId="237511188411732"
+								appId="929094977622295"
 								autoLoad={false}
 								fields="name,email,picture"
 								callback={responseFacebook}

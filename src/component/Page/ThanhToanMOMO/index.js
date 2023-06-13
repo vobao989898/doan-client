@@ -26,13 +26,29 @@ function ThanhToan(props) {
   return (
     <div className="HuongDanMuaHang">
       <div className="container">
-        <div className="title-huongdans text-center">Thanh toán qua MoMo</div>
         <div className="row">
           <div>
             <div className="momo">
-              <img src={momo} alt=""></img>
+              <img
+                src="http://montco.happeningmag.com/wp-content/uploads/2014/11/thankyou.png"
+                alt=""
+              ></img>
             </div>
-            <div className="success">Success</div>
+            {data ? (
+              <div>
+                <div className="title-huongdans text-center">
+                  Bạn thanh toán qua momo thành công
+                </div>
+                <div className="success">Success</div>
+              </div>
+            ) : (
+              <div>
+                <div className="title-huongdans text-center">
+                  Bạn thanh toán qua momo thất bại
+                </div>
+                <div className="success Failed">Failed</div>
+              </div>
+            )}
           </div>
         </div>
       </div>
