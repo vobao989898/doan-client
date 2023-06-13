@@ -5,6 +5,7 @@ import DoiTra from "../component/Page/DoiTra/index";
 import TraCuuDonHang from "./../component/Page/TraCuuDonHang/index";
 import BaoHanh from "./../component/Page/BaoHanh/index";
 import ThanhToan from "./../component/Page/ThanhToan/index";
+import ThanhToanMoMo from "./../component/Page/ThanhToanMOMO/index";
 import VanChuyen from "./../component/Page/VanChuyen/index";
 import TaiKhoan from "./../component/Page/TaiKhoan/index";
 import ThuongHieuTC from "./../component/Page/ThuongHieuTC/index";
@@ -21,7 +22,6 @@ import Search from "./../component/Page/Search/index";
 import TinTuc from "./../component/Page/TinTuc/TinTuc";
 import TinTucDetail from "./../component/Page/TinTuc/Detail/index";
 import KhuyenMai from "./../component/Page/KhuyenMaiNow/index";
-
 
 export const API_ENPOINT = "https://doanapi.herokuapp.com";
 
@@ -123,6 +123,11 @@ export const ROUTESSTC = [
     path: "/ChinhSachThanhToan",
     exact: false,
     component: ThanhToan,
+  },
+  {
+    path: "/thanhToanMoMo",
+    exact: false,
+    component: ThanhToanMoMo,
   },
   {
     path: "/HinhThucVanChuyen",

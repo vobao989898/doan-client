@@ -34,6 +34,7 @@ function DatHang(props) {
   async function submit() {
     if (valueRadio) {
       data.thanh_toan = 0;
+      data.hinh_thuc_thanh_toan = 0;
       await apiDH
         .Them(data)
         .then((response) => {
@@ -97,7 +98,8 @@ function DatHang(props) {
           console.log(error);
         });
     } else {
-      data.thanh_toan = 1;
+      data.thanh_toan = 0;
+      data.hinh_thuc_thanh_toan = 1;
       await apiDH
         .Them(data)
         .then((responseDH) => {

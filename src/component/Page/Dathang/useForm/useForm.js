@@ -15,6 +15,8 @@ const useForm = (callback, validate) => {
         ship: 0,
         tong_tien: 0,
         date_create: "",
+        hinh_thuc_thanh_toan: 0,
+        thanh_toan: 0,
     });
     
 

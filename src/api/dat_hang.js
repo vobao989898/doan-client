@@ -72,6 +72,10 @@ export const update = (data) => {
     return authAxios.patch(`/api/dat_hang`, data);
 };
 
+export const updateThanhToan = (data) => {
+    return authAxios.post(`/api/dat_hang/updateThanhToan`, data);
+};
+
 export const getGiayByID = (data) => {
     return authAxios.post(`/api/dat_hang/getGiayByID`, data);
 };
