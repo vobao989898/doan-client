@@ -47,7 +47,7 @@ const TinTuc = (props) => {
                       >
                         <img
                           className=" lazyloaded"
-                          src={`http://localhost:8080/images/${item.hinh_anh}`}
+                          src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
                         />
                       </Link>
                       <Link to={`/Tintuc/id=${item.id}`}

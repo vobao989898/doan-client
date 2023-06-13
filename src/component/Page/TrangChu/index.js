@@ -463,7 +463,7 @@ function TrangChu(props) {
                   return (
                     <div key={item.id} className="img-banner">
                       <img
-                        src={`http://localhost:8080/images/${item.hinh_anh}`}
+                        src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
                       ></img>
                     </div>
                   );
@@ -568,7 +568,7 @@ function TrangChu(props) {
                                   className="imgMauSac"
                                   width={"20px"}
                                   height={"20px"}
-                                  src={`http://localhost:8080/images/${item.hinh_anh}`}
+                                  src={`https://doanapi.herokuapp.com/images/${item.hinh_anh}`}
                                 ></img>
                               </a>
                             </li>
