@@ -262,7 +262,7 @@ function DatHang(props) {
             if (response.data.success === 1) {
               if (response.data) {
                 d.push(response.data.data[0]);
-                setDataSize(d);
+                setDataSize(response.data.data);
               }
             } else {
             }
