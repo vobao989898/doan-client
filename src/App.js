@@ -55,6 +55,10 @@ function App(props) {
           <Switch>
             {renderAdminRouteDH()}
             {renderAdminRoute()}
+            <MessengerCustomerChat
+              pageId="100952058765770"
+              appId="929094977622295"
+            />
           </Switch>
         </div>
       </BrowserRouter>
