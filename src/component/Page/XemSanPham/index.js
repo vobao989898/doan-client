@@ -30,6 +30,7 @@ function XemSanPham(props) {
 
   const history = useHistory();
   const [data, setData] = useState({});
+  const [indexSize, setIndexSize] = useState(0);
   const [datas, setDatas] = useState({});
   const [dataTam, setDataTam] = useState([]);
   const [dataTamAll, setDataTamAll] = useState([]);
@@ -365,6 +366,13 @@ function XemSanPham(props) {
     const m = data[0].mausac.filter(
       (arr, index) => arr.id_mau_sac === datas.id_mau_sac
     );
+    let indexMS = 0;
+    data[0].mausac.forEach((arr, index) => {
+      if (arr.id_mau_sac === datas.id_mau_sac) {
+        setIndexSize(index);
+        indexMS = index;
+      }
+    });
     if (m.length > 0) {
       const d = m[0].hinh_anh.split(",");
       let arr = [];
@@ -372,12 +380,13 @@ function XemSanPham(props) {
         arr.push(d[i]);
       }
       setMausac(arr);
+
       setDataSubmit((dataSubmit) => ({
         ...dataSubmit,
         id_mau_sac: datas.id_mau_sac,
         ten_mau_sac: datas.ten_mau_sac,
-        id_size: data[0].mausac[0].size[0].id,
-        ten_size: data[0].mausac[0].size[0].ten_size,
+        id_size: data[0].mausac[indexMS].size[0].id_size,
+        ten_size: data[0].mausac[indexMS].size[0].ten_size,
         hinh_anh: d[0],
       }));
     }
@@ -544,7 +553,9 @@ function XemSanPham(props) {
           if (res?.data?.success === 1) {
             setShow(false);
             loadDanhGIa();
-            notify.notificatonSuccess("Cảm ơn bạn đã đánh giá sản phẩm của chúng tôi");
+            notify.notificatonSuccess(
+              "Cảm ơn bạn đã đánh giá sản phẩm của chúng tôi"
+            );
           }
           setShow(false);
         });
@@ -664,7 +675,7 @@ function XemSanPham(props) {
                     {dataSubmit.id_size !== 0 ? (
                       <SelectSize
                         dataSubmits={dataSubmit}
-                        arrSize={data.length > 0 ? data[0].mausac[0].size : []}
+                        arrSize={data.length > 0 ? data[0].mausac[indexSize].size : []}
                         selectSizes={selectSizes}
                       ></SelectSize>
                     ) : (

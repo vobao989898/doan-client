@@ -78,9 +78,8 @@ function DatHang(props) {
                       })
                       .then((response) => {
                         if (response.status === 200) {
-                          // localStorage.removeItem("product");
-                          // setterToken([]);
-                          // history.push("/");
+                          localStorage.removeItem("product");
+                           history.push("/");
                         }
                       })
                       .catch((error) => {
@@ -174,7 +173,7 @@ function DatHang(props) {
       matp: e.target.value,
     }));
     stemp.matp = e.target.value;
-    const stempData = tinh.filter((item) => item.matp === e.target.value);
+    const stempData = tinh.filter((item) => parseInt(item.matp) === parseInt(e.target.value));
     if (stempData.length > 0) {
       await setData((data) => ({
         ...data,
@@ -234,7 +233,7 @@ function DatHang(props) {
         console.log(error);
       });
   }
-
+  
   useEffect(() => {
     const tokenss = localStorage.getItem("tokenTC");
     const product = JSON.parse(localStorage.getItem("product"));
