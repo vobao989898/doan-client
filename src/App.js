@@ -49,10 +49,10 @@ function App(props) {
   return (
     <Provider store={store}>
       <BrowserRouter>
-        {/* <MessengerCustomerChat
+        <MessengerCustomerChat
           pageId="100952058765770"
           appId="929094977622295"
-        /> */}
+        />
         <div className="tong">
           <NotificationContainer />
           <ModalProduct></ModalProduct>
