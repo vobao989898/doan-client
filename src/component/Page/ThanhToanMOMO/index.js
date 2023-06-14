@@ -6,7 +6,7 @@ function ThanhToan(props) {
   const [data, setData] = useState(false);
   const url_string = window.location.href;
   const url = new URL(url_string);
-  const orderId = url.searchParams.get("orderId");
+  const orderId = url.searchParams.get("orderInfo");
   const resultCode = url.searchParams.get("resultCode");
   const updateDonHang = async () => {
     await apiDH.updateThanhToan({ id: orderId, thanh_toan: 1 }).then((res) => {
