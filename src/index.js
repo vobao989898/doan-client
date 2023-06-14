@@ -6,10 +6,10 @@ import * as serviceWorker from "./serviceWorker";
 import { MessengerCustomerChat } from "react-messenger-customer-chat";
 
 ReactDOM.render(
-  <>
+  <div>
     <App />
     <MessengerCustomerChat pageId="100952058765770" appId="929094977622295" />
-  </>,
+  </div>,
   document.getElementById("root")
 );
 
