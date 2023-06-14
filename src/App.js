@@ -49,7 +49,6 @@ function App(props) {
   return (
     <Provider store={store}>
       <BrowserRouter>
-      
         <div className="tong">
         <NotificationContainer/>
           <ModalProduct></ModalProduct>
