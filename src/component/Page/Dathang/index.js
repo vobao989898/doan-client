@@ -146,7 +146,7 @@ function DatHang(props) {
                           localStorage.removeItem("product");
                           // setterToken([]);
                           history.push("/");
-                          window.open(`http://localhost/php/PayMoMo/init_payment.php?amount=${parseInt(i.soluong) * parseInt(i.gia_ban)}&orderId=${responseDH.data.data.insertId}`);
+                          window.open(`https://momodoan.000webhostapp.com/init_payment.php?amount=${parseInt(i.soluong) * parseInt(i.gia_ban)}&orderId=${responseDH.data.data.insertId}`);
                         }
                       })
                       .catch((error) => {

@@ -22,7 +22,7 @@ function ThanhToan(props) {
       setData(false);
     }
   }, []);
-  console.log(data);
+
   return (
     <div className="HuongDanMuaHang">
       <div className="container">
