@@ -2,14 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-//  import './genetator';
-import { MessengerCustomerChat } from "react-messenger-customer-chat";
 
 ReactDOM.render(
-  <div>
-    <App />
-    <MessengerCustomerChat pageId="100952058765770" appId="929094977622295" />
-  </div>,
+    <App />,
   document.getElementById("root")
 );
 
