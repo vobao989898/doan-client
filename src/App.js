@@ -8,9 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Provider } from "react-redux";
 import configstore from "./redux/configstore";
 import ModalProduct from "./component/modalProduct/index";
-import 'react-notifications/lib/notifications.css';
-import {NotificationContainer} from 'react-notifications';
-
+import "react-notifications/lib/notifications.css";
+import { NotificationContainer } from "react-notifications";
+import MessengerCustomerChat from "react-messenger-customer-chat";
 const store = configstore();
 
 function App(props) {
@@ -49,9 +49,12 @@ function App(props) {
   return (
     <Provider store={store}>
       <BrowserRouter>
-      
+        <MessengerCustomerChat
+          pageId="100952058765770"
+          appId="929094977622295"
+        />
         <div className="tong">
-        <NotificationContainer/>
+          <NotificationContainer />
           <ModalProduct></ModalProduct>
           <Switch>
             {renderAdminRouteDH()}
